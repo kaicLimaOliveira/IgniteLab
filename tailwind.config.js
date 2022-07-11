@@ -5,13 +5,16 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        blur: 'url(/src/assets/blur-background.png)'
+      },
       fontFamily: {
         sans: 'Roboto, sans-serif',
       },
       colors: {
         green: {
           300: '#00B37E',
-          500: '#00B75F',
+          500: '#00875F',
           700: '#015F43',
         },
         blue: {

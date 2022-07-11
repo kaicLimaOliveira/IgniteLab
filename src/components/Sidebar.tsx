@@ -20,7 +20,7 @@ interface GetLessonsQueryResponse {
         slug: string;
         availableAt: string;
         lessonType: 'live' | 'class'
-    }
+    }[]
 }
 
 export function Siderbar() {
@@ -41,7 +41,7 @@ export function Siderbar() {
                             title={lesson.title}
                             slug={lesson.slug}
                             availableAt={new Date(lesson.availableAt)}
-                            type={lesson.type}
+                            type={lesson.lessonType}
                         />
                     )
                 })}
