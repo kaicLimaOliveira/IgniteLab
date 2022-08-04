@@ -10,16 +10,16 @@
 </p>
 
 <p align="center">
-  <img alt="Tailwind" src=".github/img1.jpeg" width="80%">
+  <img alt="Tailwind" src=".github/img1.jpeg" width="60%">
   <br>
   <br>
-  <img alt="Tailwind" src=".github/img2.jpeg" width="80%">
+  <img alt="Tailwind" src=".github/img2.jpeg" width="60%">
   <br>
   <br>
-  <img alt="Tailwind" src=".github/img3.jpeg" width="80%">
+  <img alt="Tailwind" src=".github/img3.jpeg" width="60%">
   <br>
   <br>
-  <img alt="Tailwind" src=".github/img4.jpeg" width="80%">
+  <img alt="Tailwind" src=".github/img4.jpeg" width="60%">
 </p>
 
 ## 💻 Projeto

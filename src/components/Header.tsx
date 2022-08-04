@@ -11,7 +11,7 @@ export function Header({ changeDisplay, toggle }: ToggleProps) {
         <header className="w-full py-5 flex items-center justify-center bg-gray-700 border-b border-gray-600 sm:justify-around">
             <Logo />
 
-            <div className="sm:block hidden sm:flex items-center ml-4">
+            <div className="sm:block hidden items-center ml-4">
                 <span className="text-base mr-1">Aulas</span>
                 {toggle ? (
                     <X className="text-blue-500 transition-transform" onClick={changeDisplay} size={36} />
