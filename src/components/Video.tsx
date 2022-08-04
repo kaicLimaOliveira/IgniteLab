@@ -16,7 +16,6 @@ export function Video(props: VideoProps) {
         }
     })
 
-
     if (!data || !data.lesson) {
         return (
             <div className="flex-1">
@@ -24,7 +23,6 @@ export function Video(props: VideoProps) {
             </div>
         )
     }
-
 
     return (
         <div className="flex-1">
@@ -37,10 +35,10 @@ export function Video(props: VideoProps) {
                 </div>
             </div>
 
-            <div className="p-8 max-w-[1100px] mx-auto">
-                <div className="flex items-start gap-16">
+            <div className="p-8 sm:p-0 sm:mx-2 max-w-[1100px] mx-auto">
+                <div className="flex items-start gap-16 md:block">
                     <div className="flex-1">
-                        <h1 className="text-2xl font-bold">
+                        <h1 className="text-2xl font-bold sm:text-lg">
                             {data.lesson.title}
                         </h1>
                         <p className="mt-4 text-gray-200 leading-relaxed">
@@ -63,23 +61,23 @@ export function Video(props: VideoProps) {
                         )}
                     </div>
 
-                    <div className="flex flex-col gap-4">
-                        <a href="" className="p-4 text-sm bg-green-500 flex items-center rounded font-bold uppercase gap-2 justify-center hover:bg-green-700 transition-colors">
+                    <div className="flex flex-col gap-3 sm:my-5 sm:mx-2">
+                        <a href="https://discord.gg/cwpAcqBk" target="_blank" className="p-4 text-sm bg-green-500 flex items-center rounded font-bold uppercase gap-2 justify-center hover:bg-green-700 transition-colors">
                             <DiscordLogo size={24} />
                             Comunidade do Discord
                         </a>
 
 
-                        <a href="" className="p-4 text-sm border-blue-500 text-blue-500 flex items-center rounded font-bold uppercase gap-2 justify-center hover:bg-blue-500 hover:text-gray-900 transition-colors">
+                        <a href="" target="_blank" className="p-4 text-sm border-blue-500 text-blue-500 flex items-center rounded font-bold uppercase gap-2 justify-center border border-blue-500 hover:bg-blue-500 hover:text-gray-900 transition-colors">
                             <Lightning size={24} />
                             Acesse o desafio
                         </a>
                     </div>
                 </div>
 
-                <div className="gap-8 mt-20 grid grid-cols-2">
-                    <a href="" className="bg-gray-700 rounded overflow-hidden flex items-stretch gap-6 hover:bg-gray-600 transition-colors">
-                        <div className="bg-green-700 h-full p-6 flex items-center">
+                <div className="gap-8 mt-14 grid grid-cols-2 md:block">
+                    <a href={data?.lesson?.material} target="_blank" className="bg-gray-700 rounded overflow-hidden flex items-stretch gap-6 hover:bg-gray-600 transition-colors sm:w-full">
+                        <div className="bg-green-700 h-auto p-6 flex items-center sm:h-auto">
                             <FileArrowDown size={40} />
                         </div>
 
@@ -90,13 +88,13 @@ export function Video(props: VideoProps) {
                             </p>
                         </div>
 
-                        <div className="h-full p-6 flex items-center border-l-2 border-gray-900">
+                        <div className="h-full p-6 flex items-center border-l-2 border-gray-900 sm:h-auto">
                             <CaretRight size={24} />
                         </div>
                     </a>
 
-                    <a href="" className="bg-gray-700 rounded overflow-hidden flex items-stretch gap-6 hover:bg-gray-600 transition-colors">
-                        <div className="bg-green-700 h-full p-6 flex items-center">
+                    <a href="" target="_blank" className="bg-gray-700 rounded overflow-hidden mt-2 flex items-stretch gap-6 hover:bg-gray-600 transition-colors sm:w-full sm:my-3">
+                        <div className="bg-green-700 h-auto p-6 flex items-center sm:h-auto">
                             <FileArrowDown size={40} />
                         </div>
 
@@ -107,7 +105,7 @@ export function Video(props: VideoProps) {
                             </p>
                         </div>
 
-                        <div className="h-full p-6 flex items-center border-l-2 border-gray-900">
+                        <div className="h-full p-6 flex items-center border-l-2 border-gray-900 sm:h-auto">
                             <CaretRight size={24} />
                         </div>
                     </a>

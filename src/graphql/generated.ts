@@ -1238,6 +1238,7 @@ export type Lesson = Node & {
   /** The unique identifier */
   id: Scalars['ID'];
   lessonType: LessonType;
+  material?: Maybe<Scalars['String']>;
   /** The time the document was published. Null on documents in draft stage. */
   publishedAt?: Maybe<Scalars['DateTime']>;
   /** User that last published this document */
@@ -1329,6 +1330,7 @@ export type LessonCreateInput = {
   createdAt?: InputMaybe<Scalars['DateTime']>;
   description?: InputMaybe<Scalars['String']>;
   lessonType: LessonType;
+  material?: InputMaybe<Scalars['String']>;
   slug: Scalars['String'];
   teacher?: InputMaybe<TeacherCreateOneInlineInput>;
   title: Scalars['String'];
@@ -1446,6 +1448,25 @@ export type LessonManyWhereInput = {
   lessonType_not?: InputMaybe<LessonType>;
   /** All values that are not contained in given list. */
   lessonType_not_in?: InputMaybe<Array<LessonType>>;
+  material?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  material_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  material_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  material_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values that are not equal to given value. */
+  material_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  material_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  material_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  material_not_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values not starting with the given string. */
+  material_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  material_starts_with?: InputMaybe<Scalars['String']>;
   publishedAt?: InputMaybe<Scalars['DateTime']>;
   /** All values greater than the given value. */
   publishedAt_gt?: InputMaybe<Scalars['DateTime']>;
@@ -1552,6 +1573,8 @@ export enum LessonOrderByInput {
   IdDesc = 'id_DESC',
   LessonTypeAsc = 'lessonType_ASC',
   LessonTypeDesc = 'lessonType_DESC',
+  MaterialAsc = 'material_ASC',
+  MaterialDesc = 'material_DESC',
   PublishedAtAsc = 'publishedAt_ASC',
   PublishedAtDesc = 'publishedAt_DESC',
   SlugAsc = 'slug_ASC',
@@ -1574,6 +1597,7 @@ export type LessonUpdateInput = {
   challenge?: InputMaybe<ChallengeUpdateOneInlineInput>;
   description?: InputMaybe<Scalars['String']>;
   lessonType?: InputMaybe<LessonType>;
+  material?: InputMaybe<Scalars['String']>;
   slug?: InputMaybe<Scalars['String']>;
   teacher?: InputMaybe<TeacherUpdateOneInlineInput>;
   title?: InputMaybe<Scalars['String']>;
@@ -1601,6 +1625,7 @@ export type LessonUpdateManyInput = {
   availableAt?: InputMaybe<Scalars['DateTime']>;
   description?: InputMaybe<Scalars['String']>;
   lessonType?: InputMaybe<LessonType>;
+  material?: InputMaybe<Scalars['String']>;
   title?: InputMaybe<Scalars['String']>;
   videoId?: InputMaybe<Scalars['String']>;
 };
@@ -1735,6 +1760,25 @@ export type LessonWhereInput = {
   lessonType_not?: InputMaybe<LessonType>;
   /** All values that are not contained in given list. */
   lessonType_not_in?: InputMaybe<Array<LessonType>>;
+  material?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  material_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  material_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  material_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values that are not equal to given value. */
+  material_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  material_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  material_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  material_not_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values not starting with the given string. */
+  material_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  material_starts_with?: InputMaybe<Scalars['String']>;
   publishedAt?: InputMaybe<Scalars['DateTime']>;
   /** All values greater than the given value. */
   publishedAt_gt?: InputMaybe<Scalars['DateTime']>;
@@ -5581,7 +5625,7 @@ export type GetLessonBySlugQueryVariables = Exact<{
 }>;
 
 
-export type GetLessonBySlugQuery = { __typename?: 'Query', lesson?: { __typename?: 'Lesson', title: string, videoId: string, description?: string | null, teacher?: { __typename?: 'Teacher', bio: string, avatarURL: string, name: string } | null } | null };
+export type GetLessonBySlugQuery = { __typename?: 'Query', lesson?: { __typename?: 'Lesson', title: string, videoId: string, description?: string | null, material?: string, teacher?: { __typename?: 'Teacher', bio: string, avatarURL: string, name: string } | null } | null };
 
 export type GetLessonsQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -5617,9 +5661,9 @@ export type CreateSubscriberMutationFn = Apollo.MutationFunction<CreateSubscribe
  * });
  */
 export function useCreateSubscriberMutation(baseOptions?: Apollo.MutationHookOptions<CreateSubscriberMutation, CreateSubscriberMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<CreateSubscriberMutation, CreateSubscriberMutationVariables>(CreateSubscriberDocument, options);
-      }
+  const options = { ...defaultOptions, ...baseOptions }
+  return Apollo.useMutation<CreateSubscriberMutation, CreateSubscriberMutationVariables>(CreateSubscriberDocument, options);
+}
 export type CreateSubscriberMutationHookResult = ReturnType<typeof useCreateSubscriberMutation>;
 export type CreateSubscriberMutationResult = Apollo.MutationResult<CreateSubscriberMutation>;
 export type CreateSubscriberMutationOptions = Apollo.BaseMutationOptions<CreateSubscriberMutation, CreateSubscriberMutationVariables>;
@@ -5629,6 +5673,7 @@ export const GetLessonBySlugDocument = gql`
     title
     videoId
     description
+    material
     teacher {
       bio
       avatarURL
@@ -5655,13 +5700,13 @@ export const GetLessonBySlugDocument = gql`
  * });
  */
 export function useGetLessonBySlugQuery(baseOptions?: Apollo.QueryHookOptions<GetLessonBySlugQuery, GetLessonBySlugQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetLessonBySlugQuery, GetLessonBySlugQueryVariables>(GetLessonBySlugDocument, options);
-      }
+  const options = { ...defaultOptions, ...baseOptions }
+  return Apollo.useQuery<GetLessonBySlugQuery, GetLessonBySlugQueryVariables>(GetLessonBySlugDocument, options);
+}
 export function useGetLessonBySlugLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetLessonBySlugQuery, GetLessonBySlugQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetLessonBySlugQuery, GetLessonBySlugQueryVariables>(GetLessonBySlugDocument, options);
-        }
+  const options = { ...defaultOptions, ...baseOptions }
+  return Apollo.useLazyQuery<GetLessonBySlugQuery, GetLessonBySlugQueryVariables>(GetLessonBySlugDocument, options);
+}
 export type GetLessonBySlugQueryHookResult = ReturnType<typeof useGetLessonBySlugQuery>;
 export type GetLessonBySlugLazyQueryHookResult = ReturnType<typeof useGetLessonBySlugLazyQuery>;
 export type GetLessonBySlugQueryResult = Apollo.QueryResult<GetLessonBySlugQuery, GetLessonBySlugQueryVariables>;
@@ -5693,13 +5738,13 @@ export const GetLessonsDocument = gql`
  * });
  */
 export function useGetLessonsQuery(baseOptions?: Apollo.QueryHookOptions<GetLessonsQuery, GetLessonsQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetLessonsQuery, GetLessonsQueryVariables>(GetLessonsDocument, options);
-      }
+  const options = { ...defaultOptions, ...baseOptions }
+  return Apollo.useQuery<GetLessonsQuery, GetLessonsQueryVariables>(GetLessonsDocument, options);
+}
 export function useGetLessonsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetLessonsQuery, GetLessonsQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetLessonsQuery, GetLessonsQueryVariables>(GetLessonsDocument, options);
-        }
+  const options = { ...defaultOptions, ...baseOptions }
+  return Apollo.useLazyQuery<GetLessonsQuery, GetLessonsQueryVariables>(GetLessonsDocument, options);
+}
 export type GetLessonsQueryHookResult = ReturnType<typeof useGetLessonsQuery>;
 export type GetLessonsLazyQueryHookResult = ReturnType<typeof useGetLessonsLazyQuery>;
 export type GetLessonsQueryResult = Apollo.QueryResult<GetLessonsQuery, GetLessonsQueryVariables>;
